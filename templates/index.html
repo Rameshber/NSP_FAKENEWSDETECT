@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+<center><p style="font-size:40px;color:blue;margin-top:10px;">Poornima College Of Engineering</p></center> 
+<center><p style="font-size:30px;color:blue;margin-top:10px;">Department of Computer Engineering</p></center> 
+<center><p style="font-size:25px;color:black;margin-top:10px;">Model Devloped by Rameshber Goswami , Yash Tripathi , Shivam Kumar , Shrishti Malu</p></center> 
+  <meta charset="UTF-8">
+  <title>Fake News📰 Detection System</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<center><p style="font-size:40px;color:white;margin-top:10px;">Poornima College Of Engineering</p></center> 
+<center><p style="font-size:30px;color:white;margin-top:10px;">Department of Computer Engineering</p></center> 
+<center><p style="font-size:25px;color:white;margin-top:10px;">Model Devloped by Rameshber Goswami , Yash Tripathi , Shivam Kumar , Shrishti Malu</p></center> 
+
+<body>
+ <div class="login">
+	<h1>Fake News📰  Detector</h1>
+
+    <form action="{{ url_for('predict')}}" method="POST">
+    	<textarea  name="message" rows="6" cols="50" required="required" style="font-size: 18pt"></textarea>
+		<br> </br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+        	<div class="results">
+
+	{% if prediction == ['FAKE']%}
+	<h2 style="color:red;">Looking Spam⚠️News📰 </h2>
+	{% elif prediction == ['REAL']%}
+				<h2 style="color:green;"><b>Looking Real News📰</b></h2>
+	{% endif %}
+
+	</div>
+
+    </form>
+
+</div>
